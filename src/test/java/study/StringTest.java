@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class StringTest {
     @Test
@@ -36,10 +37,15 @@ class StringTest {
     }
 
     @Test
-    @DisplayName("abc 값이 주어졌을때 String의 charAt()을 활용해 특정 문자의 위치 가져오기")
+    @DisplayName("abc 값이 주어졌을때 String의 charAt()을 활용해 특정 문자의 위치가 초과되면 StringIndexOutOfBoundsException 발생")
     void charAt() {
-        String str = "abc";
-        String actual = str.substring(1,str.length()-1);
-        assertThat(actual).isEqualTo("1,2");
+
+        assertThatThrownBy(() -> {
+            char s = "abc".charAt(3);
+        }).isInstanceOf(IndexOutOfBoundsException.class)
+                .hasMessageContaining("String index out of range: 3");
+
+
+//        assertThat(actual).isEqualTo("1,2");
     }
 }
