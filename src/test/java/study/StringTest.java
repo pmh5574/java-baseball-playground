@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StringTest {
+class StringTest {
     @Test
     void replace() {
         String actual = "abc".replace("b", "d");
@@ -31,6 +31,14 @@ public class StringTest {
     @DisplayName("(1,2) 값이 주어졌을 때 substring() 메소드를 활용해 ()을 제거하고 1,2를 반환하도록 구현한다.")
     void substring() {
         String str = "(1,2)";
+        String actual = str.substring(1,str.length()-1);
+        assertThat(actual).isEqualTo("1,2");
+    }
+
+    @Test
+    @DisplayName("abc 값이 주어졌을때 String의 charAt()을 활용해 특정 문자의 위치 가져오기")
+    void charAt() {
+        String str = "abc";
         String actual = str.substring(1,str.length()-1);
         assertThat(actual).isEqualTo("1,2");
     }
