@@ -4,9 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +34,17 @@ class SetTest {
     void size() {
 //        numbers.size()
 
-        Assertions.assertThat
-        assertThat(numbers.size()).isEqualTo();
+//        numbers.size()
+        assertThat(numbers.size()).isEqualTo(3);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3, Integer.MAX_VALUE})
+    @DisplayName("ParameterizedTest로 중복 코드 제거하기")
+    void contains() {
+        assertThat(numbers.contains(1)).isTrue();
+        assertThat(numbers.contains(2)).isTrue();
+        assertThat(numbers.contains(3)).isTrue();
+    }
+
 }
