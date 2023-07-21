@@ -44,7 +44,7 @@ class SetTest {
     void contains(int number) {
         assertTrue(numbers.contains(number));
     }
-ㅇ
+
     @ParameterizedTest
     @CsvSource({"1,true", "2,true", "3,true", "4,false", "5,false"})
     @DisplayName("요구사항 3 - 123일땐 true 45는 false가 반환되는 ")
