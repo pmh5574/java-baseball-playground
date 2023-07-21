@@ -52,7 +52,7 @@ class StringTest {
 //        assertThat(actual).isEqualTo("1,2");
     }
 
-    @Testㄴ
+    @Test
     @DisplayName("들어온 값의 순서에 따라 값 체크")
     void strCalculator() {
         Scanner scanner = new Scanner(System.in);
