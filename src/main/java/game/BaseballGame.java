@@ -27,13 +27,17 @@ public class BaseballGame {
         System.out.println("randomNum:: " + randomNum);
         System.out.println("memberNum:: " + memberNum);
 
+        System.out.println(play(ball, strike));
+
+    }
+
+    public String play(int ball, int strike) {
+
         if (strike == 3) {
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            return "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
         }
 
-        if (strike != 3) {
-            System.out.println(ball + "볼 " + strike + "스트라이크");
-        }
+        return ball + "볼 " + strike + "스트라이크";
 
     }
 
@@ -54,7 +58,7 @@ public class BaseballGame {
 
     public int checkStrikeCount(String randomNowNum, String memberNowNum) {
 
-        if(randomNowNum.equals(memberNowNum)) {
+        if(memberNowNum.equals(randomNowNum)) {
             return 1;
         }
 
