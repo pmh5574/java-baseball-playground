@@ -24,3 +24,8 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+------------
+todolist
+- 같은 수 같은 자리면 스트라이크
+- 같은 수 다른 자리면 볼
+- 같은 수 
