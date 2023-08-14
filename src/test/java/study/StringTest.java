@@ -55,15 +55,24 @@ class StringTest {
     @Test
     @DisplayName("들어온 값의 순서에 따라 값 체크")
     void strCalculator() {
-        Scanner scanner = new Scanner(System.in);
 
-        String value = scanner.nextLine();
-        assertThatThrownBy(() -> {
-            char s = "abc".charAt(3);
-        }).isInstanceOf(IndexOutOfBoundsException.class)
-                .hasMessageContaining("String index out of range: 3");
+        String value = "2 + 3 * 4 / 2";
+        String[] values = value.split(" ");
 
+        int result = Integer.parseInt(values[0]);
 
-//        assertThat(actual).isEqualTo("1,2");
+        for (int i = 0; i < values.length; i++) {
+            if (values[i].equals("+")) {
+                result += Integer.parseInt(values[i+1]);
+            } else if (values[i].equals("-")) {
+                result -= Integer.parseInt(values[i+1]);
+            } else if (values[i].equals("*")) {
+                result *= Integer.parseInt(values[i+1]);
+            } else if (values[i].equals("/")) {
+                result /= Integer.parseInt(values[i+1]);
+            }
+        }
+
+        assertThat(result).isEqualTo(10);
     }
 }
