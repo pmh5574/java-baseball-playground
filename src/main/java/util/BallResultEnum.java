@@ -1,6 +1,6 @@
 package util;
 
 public enum BallResultEnum {
-    strike, ball, nothing
+    STRIKE, BALL, NOTHING
 }
 

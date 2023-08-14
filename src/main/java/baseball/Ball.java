@@ -18,14 +18,14 @@ public class Ball {
     public BallResultEnum play(int ball, int location) {
 
         if (equals(new Ball(ball, location))) {
-            return BallResultEnum.strike;
+            return BallResultEnum.STRIKE;
         }
 
         if (ball == comBall && location != comLocation) {
-            return BallResultEnum.ball;
+            return BallResultEnum.BALL;
         }
 
-        return BallResultEnum.nothing;
+        return BallResultEnum.NOTHING;
     }
 
     @Override
