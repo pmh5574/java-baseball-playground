@@ -2,7 +2,6 @@ package baseball;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.BallResultEnum;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
