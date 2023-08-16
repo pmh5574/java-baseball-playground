@@ -1,29 +1,32 @@
 package baseball;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Balls {
 
-    private List<Integer> comBalls;
+    private List<Ball> balls;
 
     public Balls(List<Integer> list) {
-        this.comBalls = list;
+        this.balls = makeBall(list);
     }
 
-    public BallResultEnum play(int userBall, int position) {
+    public List<Ball> makeBall(List<Integer> comBalls) {
+
+        List<Ball> ballList = new ArrayList<>();
 
         for (int i = 0; i < comBalls.size(); i++) {
-            Ball ball = new Ball(comBalls.get(i), i+1);
-
-            if (BallResultEnum.isStrike(ball.play(userBall, position))) {
-                return BallResultEnum.STRIKE;
-            }
-
-            if (BallResultEnum.isBall(ball.play(userBall, position))) {
-                return BallResultEnum.STRIKE;
-            }
+            ballList.add(new Ball(comBalls.get(i), i+1));
         }
 
-        return BallResultEnum.NOTHING;
+        return ballList;
+    }
+
+    public BallResultEnum play(int userBall, int userPosition) {
+        return balls.stream()
+                .map(ball -> ball.play(userBall, userPosition))
+                .filter(BallResultEnum::strikeOrBallCheck)
+                .findFirst()
+                .orElse(BallResultEnum.NOTHING);
     }
 }

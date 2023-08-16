@@ -10,5 +10,9 @@ public enum BallResultEnum {
     public static boolean isBall(BallResultEnum result) {
         return BallResultEnum.BALL == result;
     }
+
+    public static boolean strikeOrBallCheck(BallResultEnum result) {
+        return isStrike(result) || isBall(result);
+    }
 }
 
