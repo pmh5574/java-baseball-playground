@@ -19,21 +19,21 @@ public class BallsTest {
 
     @Test
     void balls로_현재공과위치값_NOTHING_테스트() {
-        BallResultEnum ballResultEnum = balls.play(4,1);
+        BallResultEnum ballResultEnum = balls.play(new Ball(4, 1));
 
         assertThat(ballResultEnum).isEqualTo(BallResultEnum.NOTHING);
     }
 
     @Test
     void balls로_현재공과위치값_BALL_테스트() {
-        BallResultEnum ballResultEnum = balls.play(1,2);
+        BallResultEnum ballResultEnum = balls.play(new Ball(1,2));
 
         assertThat(ballResultEnum).isEqualTo(BallResultEnum.BALL);
     }
 
     @Test
     void balls로_현재공과위치값_STRIKE_테스트() {
-        BallResultEnum ballResultEnum = balls.play(1,1);
+        BallResultEnum ballResultEnum = balls.play(new Ball(1,1));
 
         assertThat(ballResultEnum).isEqualTo(BallResultEnum.STRIKE);
     }
