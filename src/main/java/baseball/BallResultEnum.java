@@ -3,16 +3,16 @@ package baseball;
 public enum BallResultEnum {
     STRIKE, BALL, NOTHING;
 
-    public boolean isStrike() {
-        return this == STRIKE;
+    public static boolean isStrike(BallResultEnum result) {
+        return BallResultEnum.STRIKE == result;
     }
 
-    public boolean isBall() {
-        return this == BALL;
+    public static boolean isBall(BallResultEnum result) {
+        return BallResultEnum.BALL == result;
     }
 
-    public boolean isNotNothing() {
-        return this != NOTHING;
+    public static boolean strikeOrBallCheck(BallResultEnum result) {
+        return isStrike(result) || isBall(result);
     }
 }
 

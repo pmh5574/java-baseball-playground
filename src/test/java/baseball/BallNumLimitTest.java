@@ -1,26 +1,22 @@
 package baseball;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.nio.channels.IllegalChannelGroupException;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BallNumLimitTest {
 
     @Test
     void 숫자_1_9까지_테스트() {
-        BallNumber ballNumLimit = new BallNumber(9);
+        BallNumLimit ballNumLimit = new BallNumLimit();
 
-        assertThat(ballNumLimit).isNotNull();
+        assertThat(ballNumLimit.check(9)).isTrue();
     }
 
     @Test
     void 숫자_1_9초과_테스트() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            new BallNumber(10);
-        });
+        BallNumLimit ballNumLimit = new BallNumLimit();
+
+        assertThat(ballNumLimit.check(10)).isFalse();
     }
 }

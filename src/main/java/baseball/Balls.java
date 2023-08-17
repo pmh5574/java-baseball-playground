@@ -22,10 +22,10 @@ public class Balls {
         return ballList;
     }
 
-    public BallResultEnum play(Ball userBall) {
+    public BallResultEnum play(int userBall, int userPosition) {
         return balls.stream()
-                .map(ball -> ball.play(userBall))
-                .filter(BallResultEnum::isNotNothing)
+                .map(ball -> ball.play(userBall, userPosition))
+                .filter(BallResultEnum::strikeOrBallCheck)
                 .findFirst()
                 .orElse(BallResultEnum.NOTHING);
     }

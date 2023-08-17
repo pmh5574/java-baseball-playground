@@ -17,17 +17,17 @@ public class BallTest {
 
     @Test
     void 스트라이크일때() {
-        assertThat(ball.play(new Ball(1, 3))).isEqualTo(BallResultEnum.STRIKE);
+        assertThat(ball.play(1, 3)).isEqualTo(BallResultEnum.STRIKE);
     }
 
     @Test
     void 볼일때() {
-        assertThat(ball.play(new Ball(1, 2))).isEqualTo(BallResultEnum.BALL);
+        assertThat(ball.play(1, 2)).isEqualTo(BallResultEnum.BALL);
     }
 
     @Test
     void 낫싱일때() {
-        assertThat(ball.play(new Ball(2, 3))).isEqualTo(BallResultEnum.NOTHING);
+        assertThat(ball.play(2, 3)).isEqualTo(BallResultEnum.NOTHING);
     }
 
 

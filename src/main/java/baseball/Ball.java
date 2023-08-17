@@ -1,25 +1,23 @@
 package baseball;
 
-import java.util.Objects;
-
 public class Ball {
 
-    private final BallNumber ball;
+    private int comBall;
 
-    private final int position;
+    private int comPosition;
 
-    public Ball(int ball, int position) {
-        this.ball = new BallNumber(ball);
-        this.position = position;
+    public Ball(int comBall, int comPosition) {
+        this.comBall = comBall;
+        this.comPosition = comPosition;
     }
 
-    public BallResultEnum play(Ball userBall) {
+    public BallResultEnum play(int ball, int location) {
 
-        if (this.equals(userBall)) {
+        if (equals(new Ball(ball, location))) {
             return BallResultEnum.STRIKE;
         }
 
-        if (ball.equals(userBall.ball)) {
+        if (ball == comBall && location != comPosition) {
             return BallResultEnum.BALL;
         }
 
@@ -29,9 +27,9 @@ public class Ball {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ball)) return false;
-        Ball ball1 = (Ball) o;
-        return position == ball1.position && Objects.equals(ball, ball1.ball);
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return comBall == ball.comBall && comPosition == ball.comPosition;
     }
 
 }
