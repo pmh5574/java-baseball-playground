@@ -37,4 +37,28 @@ public class BallsTest {
 
         assertThat(ballResultEnum).isEqualTo(BallResultEnum.STRIKE);
     }
+
+    @Test
+    void 스트라이크1_볼2_테스트() {
+        PlayResult playResult = balls.play(new Balls(Arrays.asList(1,3,2)));
+
+        assertThat(playResult.strike).isEqualTo(1);
+        assertThat(playResult.ball).isEqualTo(2);
+    }
+
+    @Test
+    void 스트라이크0_볼2_테스트() {
+        PlayResult playResult = balls.play(new Balls(Arrays.asList(4,3,2)));
+
+        assertThat(playResult.strike).isEqualTo(0);
+        assertThat(playResult.ball).isEqualTo(2);
+    }
+
+    @Test
+    void 스트라이크3_볼0_테스트() {
+        PlayResult playResult = balls.play(new Balls(Arrays.asList(1,2,3)));
+
+        assertThat(playResult.strike).isEqualTo(3);
+        assertThat(playResult.ball).isEqualTo(0);
+    }
 }
