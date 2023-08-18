@@ -29,4 +29,15 @@ public class Balls {
                 .findFirst()
                 .orElse(BallResultEnum.NOTHING);
     }
+
+    public PlayResult play(Balls userBalls) {
+
+        PlayResult playResult = new PlayResult();
+
+        balls.stream()
+                .map(ball -> userBalls.play(ball))
+                .forEach(ballResultEnum -> playResult.result(ballResultEnum));
+
+        return playResult;
+    }
 }

@@ -2,14 +2,18 @@ package baseball;
 
 public class PlayResult {
 
-    private int strike = 0;
-    private int ball = 0;
+    public int strike = 0;
+    public int ball = 0;
 
-    public int getStrike() {
-        return 0;
-    }
+    public void result(BallResultEnum ballResultEnum) {
 
-    public int getBall() {
-        return 0;
+        if (ballResultEnum.isStrike()) {
+            strike++;
+        }
+
+        if (ballResultEnum.isBall()) {
+            ball++;
+        }
+
     }
 }
