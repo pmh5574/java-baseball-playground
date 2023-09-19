@@ -35,8 +35,8 @@ public class Balls {
         PlayResult playResult = new PlayResult();
 
         balls.stream()
-                .map(ball -> userBalls.play(ball))
-                .forEach(ballResultEnum -> playResult.result(ballResultEnum));
+                .map(userBalls::play)
+                .forEach(playResult::result);
 
         return playResult;
     }
